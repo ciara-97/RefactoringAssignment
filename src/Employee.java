@@ -16,14 +16,7 @@ public class Employee{
 
 	// Create Employee with no details
 	public Employee() {
-		this.employeeId = 0;
-		this.pps = "";
-		this.surname = "";
-		this.firstName = "";
-		this.gender = '\0';
-		this.department = "";
-		this.salary = 0;
-		this.fullTime = false;
+		
 	}//end Employee with no details
 
 	// Create Employee with details
@@ -107,14 +100,8 @@ public class Employee{
 
 	// Display Employee details
 	public String toString() {
-		String bool = "";
-		if (fullTime)
-			bool = "Yes";
-		else
-			bool = "No";
-
 		return "Employee ID: " + this.employeeId + "\nPPS Number: " + this.pps + "\nSurname: " + this.surname
 				+ "\nFirst Name: " + this.firstName + "\nGender: " + this.gender + "\nDepartment: " + this.department + "\nSalary: " + this.salary
-				+ "\nFull Time: " + bool;
+				+ "\nFull Time: " + this.fullTime;
 	}// end toString
 }// end class Employee
