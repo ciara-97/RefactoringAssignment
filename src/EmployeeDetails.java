@@ -50,14 +50,10 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import net.miginfocom.swing.MigLayout;
 
 public class EmployeeDetails extends JFrame implements ActionListener, ItemListener, DocumentListener, WindowListener {
-	// decimal format for inactive currency text field
 	private static final DecimalFormat format = new DecimalFormat("\u20ac ###,###,##0.00");
-	// decimal format for active currency text field
 	private static final DecimalFormat fieldFormat = new DecimalFormat("0.00");
-	// hold object start position in file
 	private long currentByteStart = 0;
 	private RandomFile application = new RandomFile();
-	// display files in File Chooser only with extension .dat
 	private FileNameExtensionFilter datfilter = new FileNameExtensionFilter("dat files (*.dat)", "dat");
 	// hold file name and path for current file in use
 	private File file;
@@ -653,12 +649,11 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	public boolean correctPps(String pps, long currentByte) {
 		boolean ppsExist = false;
 		// check for correct PPS format based on assignment description
-		if (pps.length() == 8 || pps.length() == 9) {
+		if (pps.length() == 7 ) {
 			if (Character.isDigit(pps.charAt(0)) && Character.isDigit(pps.charAt(1))
 					&& Character.isDigit(pps.charAt(2))	&& Character.isDigit(pps.charAt(3)) 
 					&& Character.isDigit(pps.charAt(4))	&& Character.isDigit(pps.charAt(5)) 
-					&& Character.isDigit(pps.charAt(6))	&& Character.isLetter(pps.charAt(7))
-					&& (pps.length() == 8 || Character.isLetter(pps.charAt(8)))) {
+					&& Character.isLetter(pps.charAt(6))) {
 				// open file for reading
 				application.openReadFile(file.getAbsolutePath());
 				// look in file is PPS already in use
@@ -1073,26 +1068,23 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		addWindowListener(this);
 	}// end createContentPane
 
-	// create and show main dialog
 	private static void createAndShowGUI() {
 
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		frame.createContentPane();// add content pane to frame
+		frame.createContentPane();
 		frame.setSize(760, 600);
 		frame.setLocation(250, 200);
 		frame.setVisible(true);
-	}// end createAndShowGUI
-
-	// main method
+	}
+	
 	public static void main(String args[]) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();
 			}
 		});
-	}// end main
+	}
 
-	// DocumentListener methods
 	public void changedUpdate(DocumentEvent d) {
 		change = true;
 		new JTextFieldLimit(20);
@@ -1108,14 +1100,11 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		new JTextFieldLimit(20);
 	}
 
-	// ItemListener method
 	public void itemStateChanged(ItemEvent e) {
 		change = true;
 	}
 
-	// WindowsListener methods
 	public void windowClosing(WindowEvent e) {
-		// exit application
 		exitApp();
 	}
 
@@ -1136,4 +1125,4 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 	public void windowOpened(WindowEvent e) {
 	}
-}// end class EmployeeDetails
+}

@@ -100,8 +100,8 @@ public class Employee{
 
 	// Display Employee details
 	public String toString() {
-		return "Employee ID: " + this.employeeId + "\nPPS Number: " + this.pps + "\nSurname: " + this.surname
-				+ "\nFirst Name: " + this.firstName + "\nGender: " + this.gender + "\nDepartment: " + this.department + "\nSalary: " + this.salary
-				+ "\nFull Time: " + this.fullTime;
+		return "Employee ID: " + this.employeeId + "\nPPS Number: " + this.pps + "\nSurname: " + 
+				this.surname + "\nFirst Name: " + this.firstName + "\nGender: " + this.gender + 
+				"\nDepartment: " + this.department + "\nSalary: " + this.salary + "\nFull Time: " + this.fullTime;
 	}// end toString
 }// end class Employee
