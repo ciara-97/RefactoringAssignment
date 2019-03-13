@@ -570,6 +570,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 					nextRecord();// look for next record
 					displayRecords(currentEmployee);
 				} // end if
+				
 			} // end if
 		} // end if
 	}// end deleteDecord
