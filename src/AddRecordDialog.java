@@ -165,6 +165,8 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "Wrong values or format! Please check!");
+				Colors bgColor = new Colors(ppsField,surnameField,firstNameField,salaryField,genderCombo,departmentCombo,fullTimeCombo);
+				bgColor.setToWhite();
 			}
 		}
 		else if (e.getSource() == cancel)

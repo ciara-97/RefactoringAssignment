@@ -537,7 +537,6 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			genderCombo.setSelectedIndex(0);
 			departmentCombo.setSelectedIndex(0);
 			fullTimeCombo.setSelectedIndex(0);
-			/*JOptionPane.showMessageDialog(null, "No Employees registered!");*/
 		}
 		return someoneToDisplay;
 	}
@@ -545,16 +544,9 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	public boolean correctPps(String pps, long currentByte) {
 		boolean ppsExist = false;
 		if (pps.length() == 7 && pps.matches("[0-9]{6}[A-Za-z]")) { //More efficient of checking pps
-			/*if (Character.isDigit(pps.charAt(0)) && Character.isDigit(pps.charAt(1))
-					&& Character.isDigit(pps.charAt(2))	&& Character.isDigit(pps.charAt(3)) 
-					&& Character.isDigit(pps.charAt(4))	&& Character.isDigit(pps.charAt(5)) 
-					&& Character.isLetter(pps.charAt(6))) {*/
 				application.openReadFile(file.getAbsolutePath());
 				ppsExist = application.isPpsExist(pps, currentByte);
 				application.closeReadFile();
-			/*} 
-			else
-				ppsExist = true;*/
 		} 
 		else
 			ppsExist = true;
@@ -585,6 +577,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 		return anyChanges;
 	}
+	
 	
 	private boolean checkInput() {
 		boolean valid = true;
@@ -631,22 +624,15 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		} 
 		if (!valid)
 			JOptionPane.showMessageDialog(null, "Wrong values or format! Please check!");
-		if (ppsField.isEditable())
-			setToWhite();
+		if (ppsField.isEditable()) {
+			Colors bgColor = new Colors(ppsField,surnameField,firstNameField,salaryField,genderCombo,departmentCombo,fullTimeCombo);
+			bgColor.setToWhite2();
+		}
+
 
 		return valid;
 	}
 
-	private void setToWhite() {
-		ppsField.setBackground(UIManager.getColor("TextField.background"));
-		surnameField.setBackground(UIManager.getColor("TextField.background"));
-		firstNameField.setBackground(UIManager.getColor("TextField.background"));
-		salaryField.setBackground(UIManager.getColor("TextField.background"));
-		genderCombo.setBackground(UIManager.getColor("TextField.background"));
-		departmentCombo.setBackground(UIManager.getColor("TextField.background"));
-		fullTimeCombo.setBackground(UIManager.getColor("TextField.background"));
-	}
-	
 	public void setEnabled(boolean booleanValue) {
 		boolean search;
 		if (booleanValue)
