@@ -39,7 +39,7 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 		setLocation(350, 250);
 		setVisible(true);
 	}
-
+	// initialize dialog container
 	public Container dialogPane() {
 		JPanel empDetails, buttonPanel;
 		empDetails = new JPanel(new MigLayout());
@@ -98,6 +98,7 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 		return empDetails;
 	}
 
+	// add record to file
 	public void addRecord() {
 		boolean fullTime = false;
 		Employee theEmployee;

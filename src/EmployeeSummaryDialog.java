@@ -27,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
 import net.miginfocom.swing.MigLayout;
 
 public class EmployeeSummaryDialog extends JDialog implements ActionListener {
+	// vector with all Employees details
 	Vector<Object> allEmployees;
 	JButton back;
 	
@@ -110,6 +111,8 @@ public class EmployeeSummaryDialog extends JDialog implements ActionListener {
 			dispose();
 		}
 	}
+	
+	// format for salary column
 	static class DecimalFormatRenderer extends DefaultTableCellRenderer {
 		 private static final DecimalFormat format = new DecimalFormat(
 		 "\u20ac ###,###,##0.00" );

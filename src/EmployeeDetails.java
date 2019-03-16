@@ -268,6 +268,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		return empDetails;
 	}
 
+	// display current Employee details
 	public void displayRecords(Employee thisEmployee) {
 		int countGender = 0;
 		int countDep = 0;
@@ -481,7 +482,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			} 
 		} 
 	}
-
+	// create vector of vectors with all Employee details
 	private Vector<Object> getAllEmloyees() {
 		Vector<Object> allEmployee = new Vector<Object>();
 		Vector<Object> empDetails;
@@ -509,6 +510,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		return allEmployee;
 	}
 	
+	// activate field for editing
 	private void editDetails() {
 		if (isSomeoneToDisplay()) {
 			salaryField.setText(fieldFormat.format(currentEmployee.getSalary()));
@@ -522,6 +524,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		displayRecords(currentEmployee);
 	}
 
+	// check if any of records in file is active - ID is not 0
 	private boolean isSomeoneToDisplay() {
 		boolean someoneToDisplay = false;
 		application.openReadFile(file.getAbsolutePath());
@@ -541,6 +544,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		return someoneToDisplay;
 	}
 
+	// check for correct PPS format and look if PPS already in use
 	public boolean correctPps(String pps, long currentPosition) {
 		boolean ppsExist = false;
 		if (pps.length() == 7 && pps.matches("[0-9]{6}[A-Za-z]")) { //More efficient of checking pps
@@ -554,6 +558,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		return ppsExist;
 	}
 
+	// check if file name has extension .dat
 	private boolean checkFileName(File fileName) {
 		boolean checkFile = false;
 		int length = fileName.toString().length();
@@ -564,6 +569,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		return checkFile;
 	}
 
+	// check if any changes text field where made
 	private boolean checkForChanges() {
 		boolean anyChanges = false;
 		if (change) {
@@ -581,6 +587,8 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	
 	private boolean checkInput() {
 		boolean valid = true;
+		// if any of inputs are in wrong format, colour text field and display
+		// message
 		if (ppsField.isEditable() && ppsField.getText().trim().isEmpty()) {
 			ppsField.setBackground(Colors.red);
 			valid = false;
@@ -633,6 +641,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		return valid;
 	}
 
+	// enable text fields for editing
 	public void setEnabled(boolean booleanValue) {
 		boolean search;
 		if (booleanValue)
@@ -748,6 +757,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		changesMade = false;
 	}
 
+	// allow to save changes to file when exiting the application
 	private void exitApp() {
 		if (file.length() != 0) {
 			if (changesMade) {
@@ -777,6 +787,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		} 
 	}
 
+	// generate 20 character long file name
 	private String getFileName() {
 		String fileNameChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_-";
 		StringBuilder fileName = new StringBuilder();
@@ -901,6 +912,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		});
 	}
 
+	// DocumentListener methods
 	public void changedUpdate(DocumentEvent d) {
 		change = true;
 		new JTextFieldLimit(20);

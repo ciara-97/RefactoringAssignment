@@ -67,6 +67,7 @@ public class SearchBySurnameDialog extends JDialog implements ActionListener{
 		return searchPanel;
 	}
 
+	// action listener for save and cancel button
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == search){
 			this.parent.searchBySurnameField.setText(searchField.getText());
