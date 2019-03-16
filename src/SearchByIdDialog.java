@@ -26,7 +26,7 @@ public class SearchByIdDialog extends JDialog implements ActionListener {
 	JButton search, cancel;
 	JTextField searchField;
 	public SearchByIdDialog(EmployeeDetails parent) {
-		setTitle("Search by Surname");
+		setTitle("Search by ID");
 		setModal(true);
 		this.parent = parent;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -85,4 +85,6 @@ public class SearchByIdDialog extends JDialog implements ActionListener {
 		else if (e.getSource() == cancel)
 			dispose();
 	}
+	
+	
 }
