@@ -126,23 +126,23 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 
 		searchPanel.setBorder(BorderFactory.createTitledBorder("Search"));
 		searchPanel.add(new JLabel("Search by ID:"), LayoutManager.migLayout1);
-		searchPanel.add(searchByIdField = new JTextField(20), "width 200:200:200, growx, pushx");
+		searchPanel.add(searchByIdField = new JTextField(20), "width 200:200:200," +  LayoutManager.migLayout1);
 		searchByIdField.addActionListener(this);
 		searchByIdField.setDocument(new JTextFieldLimit(20));
 		searchPanel.add(searchId = new JButton(new ImageIcon(
 				new ImageIcon("imgres.png").getImage().getScaledInstance(35, 20, java.awt.Image.SCALE_SMOOTH))),
-				"width 35:35:35, height 20:20:20, growx, pushx, wrap");
+				"width 35:35:35, height 20:20:20," + LayoutManager.migLayout2);
 		searchId.addActionListener(this);
 		searchId.setToolTipText("Search Employee By ID");
 
 		searchPanel.add(new JLabel("Search by Surname:"), LayoutManager.migLayout1);
-		searchPanel.add(searchBySurnameField = new JTextField(20), "width 200:200:200, growx, pushx");
+		searchPanel.add(searchBySurnameField = new JTextField(20), "width 200:200:200," + LayoutManager.migLayout1);
 		searchBySurnameField.addActionListener(this);
 		searchBySurnameField.setDocument(new JTextFieldLimit(20));
 		searchPanel.add(
 				searchSurname = new JButton(new ImageIcon(new ImageIcon("imgres.png").getImage()
 						.getScaledInstance(35, 20, java.awt.Image.SCALE_SMOOTH))),
-				"width 35:35:35, height 20:20:20, growx, pushx, wrap");
+				"width 35:35:35, height 20:20:20," + LayoutManager.migLayout2);
 		searchSurname.addActionListener(this);
 		searchSurname.setToolTipText("Search Employee By Surname");
 
@@ -874,9 +874,9 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		JPanel dialog = new JPanel(new MigLayout());
 
 		setJMenuBar(menuBar());
-		dialog.add(searchPanel(), "width 400:400:400, growx, pushx");
-		dialog.add(navigPanel(), "width 150:150:150, wrap");
-		dialog.add(buttonPanel(), "growx, pushx, span 2,wrap");
+		dialog.add(searchPanel(), "width 400:400:400," +  LayoutManager.migLayout1);
+		dialog.add(navigPanel(), "width 150:150:150," + LayoutManager.migLayout4);
+		dialog.add(buttonPanel(),  LayoutManager.migLayout3);
 		dialog.add(detailsPanel(), "gap top 30, gap left 150, center");
 
 		JScrollPane scrollPane = new JScrollPane(dialog);
