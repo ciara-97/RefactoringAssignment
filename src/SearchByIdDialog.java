@@ -69,6 +69,7 @@ public class SearchByIdDialog extends JDialog implements ActionListener {
 		return searchPanel;
 	}
 	
+	// action listener for save and cancel button
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == search) {
 			try {

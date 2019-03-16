@@ -34,6 +34,7 @@ public class FileManager {
 		} 
 	} 
 	
+	// Open file for adding or changing records
 	public void openWriteFile(String fileName) {
 		try
 		{
@@ -44,6 +45,7 @@ public class FileManager {
 		} 
 	} 
 
+	// Close file for adding or changing records
 	public void closeWriteFile() {
 		try 
 		{
@@ -79,6 +81,7 @@ public class FileManager {
 		return currentRecordStart - RandomAccessEmployeeRecord.SIZE;
 	}
 	
+	// Change details for existing object
 	public void changeRecords(Employee newDetails, long byteToStart) {
 		long currentRecordStart = byteToStart;
 		RandomAccessEmployeeRecord record;
@@ -194,6 +197,7 @@ public class FileManager {
 		return byteToStart;
 	}
 
+	// Get object from file in specified position
 	public Employee readRecords(long byteToStart) {
 		Employee thisEmp = null;
 		RandomAccessEmployeeRecord record = new RandomAccessEmployeeRecord();
@@ -210,7 +214,8 @@ public class FileManager {
 		return thisEmp;
 	}
 
-	public boolean isPpsExist(String pps, long currentByteStart) {
+	// Check if PPS Number already in use
+	public boolean doesPpsExist(String pps, long currentByteStart) {
 		RandomAccessEmployeeRecord record = new RandomAccessEmployeeRecord();
 		boolean ppsExist = false;
 		long oldByteStart = currentByteStart;
@@ -234,7 +239,8 @@ public class FileManager {
 		
 		return ppsExist;
 	}
-
+	
+	// Check if any record contains valid ID - greater than 0
 	public boolean isSomeoneToDisplay() {
 		boolean someoneToDisplay = false;
 		long currentByte = 0;
