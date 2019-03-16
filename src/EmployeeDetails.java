@@ -248,7 +248,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				field = (JTextField) empDetails.getComponent(i);
 				field.setEditable(false);
 				if (field == ppsField)
-					field.setDocument(new JTextFieldLimit(9));
+					field.setDocument(new JTextFieldLimit(7));
 				else
 					field.setDocument(new JTextFieldLimit(20));
 				field.getDocument().addDocumentListener(this);
@@ -541,11 +541,11 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		return someoneToDisplay;
 	}
 
-	public boolean correctPps(String pps, long currentByte) {
+	public boolean correctPps(String pps, long currentPosition) {
 		boolean ppsExist = false;
 		if (pps.length() == 7 && pps.matches("[0-9]{6}[A-Za-z]")) { //More efficient of checking pps
 				application.openReadFile(file.getAbsolutePath());
-				ppsExist = application.isPpsExist(pps, currentByte);
+				ppsExist = application.isPpsExist(pps, currentPosition);
 				application.closeReadFile();
 		} 
 		else
@@ -706,6 +706,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		int returnVal = JOptionPane.showOptionDialog(frame, "Do you want to save changes to current Employee?", "Save",
 				JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE, null, null, null);
 		if (returnVal == JOptionPane.YES_OPTION) {
+			salaryField.setText(fieldFormat.format(currentEmployee.getSalary()));
 			application.openWriteFile(file.getAbsolutePath());
 			currentEmployee = getChangedDetails();
 			application.changeRecords(currentEmployee, currentPositon);

@@ -5,7 +5,7 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
-
+//Renamed from RandomFile
 public class FileManager {
 	private RandomAccessFile output;
 	private RandomAccessFile input;
