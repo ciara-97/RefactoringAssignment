@@ -549,7 +549,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		boolean ppsExist = false;
 		if (pps.length() == 7 && pps.matches("[0-9]{6}[A-Za-z]")) { //More efficient of checking pps
 				application.openReadFile(file.getAbsolutePath());
-				ppsExist = application.isPpsExist(pps, currentPosition);
+				ppsExist = application.doesPpsExist(pps, currentPosition);
 				application.closeReadFile();
 		} 
 		else
